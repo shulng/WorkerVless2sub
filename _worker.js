@@ -664,7 +664,8 @@ export default {
 			
 			if (notlsresponseBody && noTLS == 'true') {
 				combinedContent += '\n' + notlsresponseBody;
-				console.log("notlsresponseBody: " + notlsresponseBody);
+				const sanitizedNotlsResponseBody = notlsresponseBody.replace(/uuid=[^&]+/, 'uuid=REDACTED');
+				console.log("notlsresponseBody: " + sanitizedNotlsResponseBody);
 			}
 			
 			if (协议类型 == 'Trojan' && (userAgent.includes('surge') || (format === 'surge' && !userAgent.includes('subconverter')) ) && !userAgent.includes('cf-workers-sub')) {
